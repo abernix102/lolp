@@ -15,8 +15,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path,include
+from .views import Home_View
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', Home_View.as_view(), name="home"),
+    path('blog/', include('blog.urls', namespace='blog'))
+    ##.as_view() convierte la clase de vista Home_View en una función de vista que Django puede entender y manejar adecuadamente.
+    ##name="home": Este es el nombre de la URL, que se utiliza para referenciarla de manera única dentro del código Django
 ]

@@ -10,7 +10,10 @@ class Blog_list_view(View):
 
 class Blog_create_view(View):
     def get(self, request, *arg, **kwargs):
-        context ={}
+        form=Post_Create_Forms()
+        context ={
+            'form': form
+        }
         return render(request, 'blog_create.html', context)
     def post(self, request, *arg, **kwargs):
         context={}
