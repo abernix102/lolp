@@ -1,3 +1,10 @@
+<form method="POST">
+{% csrf_token %} 
+{% comment %} En términos simples, 
+CSRF ocurre cuando un atacante induce a un usuario a realizar acciones no 
+deseadas en una aplicación web en la que el usuario tiene una sesión activa. {% endcomment %}
 title{{form.title}}
 <br/>
 content{{form.content}}
+<button type="submit">submit</button>
+</form
